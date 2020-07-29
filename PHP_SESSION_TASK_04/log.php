@@ -3,14 +3,14 @@ session_start();
 
 if (isset($_POST['submit'])) {
 
-    $uname         = $_POST['uname'];
+    $name         = $_POST['name'];
     $password     = $_POST['password'];
 
-    if (empty($uname) || empty($password)) {
+    if (empty($name) || empty($password)) {
         echo "null submission found!";
     } else {
-        if (isset($_SESSION['uname']) && isset($_SESSION['password'])) {
-            if ($uname == $_SESSION['uname'] && $password == $_SESSION['password']) {
+        if (isset($_SESSION['name']) && isset($_SESSION['password'])) {
+            if ($name == $_SESSION['name'] && $password == $_SESSION['password']) {
                 $_SESSION['status'] = "OK";
                 header('location: home.html');
             } else {
