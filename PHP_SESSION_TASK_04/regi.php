@@ -6,19 +6,22 @@ if (isset($_POST['submit'])) {
     $username         = $_POST['userName'];
     $password         = $_POST['password'];
     $confirmPassword  = $_POST['confirmPassword'];
+    $gender           = $_POST['gender'];
+    $dob              = $_POST['dob'];
 
     if (empty($name) || empty($username) || empty($password) || empty($confirmPassword) || empty($email)) {
         echo "null submission found!";
     } else {
-        $_SESSION['name']         = $name;
-        $_SESSION['email']         = $email;
-        $_SESSION['userName']      = $username;
-        $_SESSION['password']     = $password;
-        $_SESSION['confirmpassword']     = $confirmPassword;
+
+        $_SESSION['name']       = $name;
+        $_SESSION['email']      = $email;
+        $_SESSION['userName']   = $username;
+        $_SESSION['password']   = $password;
+        $_SESSION['gender']     = $gender;
+        $_SESSION['dob']        = $dob;
 
         echo "done!";
     }
 } else {
     header('location: login.html');
 }
-echo S_SESSION[''];

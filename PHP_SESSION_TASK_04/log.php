@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
         if (isset($_SESSION['name']) && isset($_SESSION['password'])) {
             if ($name == $_SESSION['name'] && $password == $_SESSION['password']) {
                 $_SESSION['status'] = "OK";
-                header('location: home.html');
+                header('location: logged_in_dash.php');
             } else {
                 header('location: login.html?msg=invalid_username/password');
             }

@@ -1,23 +1,41 @@
-<form action="log.php" method="POST">
-  <fieldset>
-    <legend><b>LOGIN</b></legend>
-    <form>
-      <table>
-        <tr>
-          <td>User Name</td>
-          <td>:</td>
-          <td><input type="text" /></td>
-        </tr>
-        <tr>
-          <td>Password</td>
-          <td>:</td>
-          <td><input type="password" /></td>
-        </tr>
-      </table>
-      <hr />
-      <input name="remember" type="checkbox" />Remember Me <br /><br />
-      <input type="submit" value="Submit" />
-      <a href="forgot_password.html">Forgot Password?</a>
-    </form>
-  </fieldset>
-</form>
+<html>
+  <table width="600px" height="100%" border="1" align="center">
+    <tr height="100px">
+      <td align="right">
+        <img src="logo.png" alt="" align="left" />
+        <a href="home.html"> Home</a> | <a href="login.html"> Login</a> |
+        <a href="registration.html"> Registration</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <form action="log.php" method="POST">
+          <fieldset>
+            <legend><b>LOGIN</b></legend>
+            <form>
+              <table>
+                <tr>
+                  <td>User Name</td>
+                  <td>:</td>
+                  <td><input name="name" type="text" /></td>
+                </tr>
+                <tr>
+                  <td>Password</td>
+                  <td>:</td>
+                  <td><input name="password" type="password" /></td>
+                </tr>
+              </table>
+              <hr />
+              <input name="remember" type="checkbox" />Remember Me <br /><br />
+              <input name="submit" type="submit" value="Submit" />
+              <a href="forgot_password.html">Forgot Password?</a>
+            </form>
+          </fieldset>
+        </form>
+      </td>
+    </tr>
+    <tr height="100px">
+      <td align="center">Copyright &copy; 2017</td>
+    </tr>
+  </table>
+</html>
