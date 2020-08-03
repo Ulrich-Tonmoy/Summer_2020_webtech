@@ -18,8 +18,8 @@ if (isset($_POST['submit'])) {
         $_SESSION['password']   = $password;
         $_SESSION['userType']   = $userType;
 
-        $file = fopen('data.txt', 'w');
-        $data = $id . "|" . $name . "|" . $password . "|" . $email . "|" . $userType;
+        $file = fopen('data.txt', 'a');
+        $data = $id . "|" . $name . "|" . $password . "|" . $email . "|" . $userType . "\r\n";
         fwrite($file, $data);
         fclose($file);
 
