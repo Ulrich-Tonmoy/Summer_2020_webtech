@@ -13,7 +13,6 @@ require_once('../php/sessionController.php');
 	<h1>Welcome home <?= $_SESSION['username'] ?></h1>
 	<form action="user_list.php" method="POST">
 		<a href="create.php"> Create New User</a> |
-		<a href="create_product.php"> Create New Product</a> |
 		<a href="" onclick="f1()"> User List</a> |
 		<a href="../php/logoutController.php"> logout</a>
 	</form>
