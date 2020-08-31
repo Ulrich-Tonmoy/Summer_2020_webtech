@@ -5,7 +5,7 @@ require_once('../db/db.php');
 function getById($id)
 {
 	$con = dbConnection();
-	$sql = "select * from users where id='{$id}'";
+	$sql = "select * from user where id='{$id}'";
 	$result = mysqli_query($con, $sql);
 	$row = mysqli_fetch_assoc($result);
 	return $row;
@@ -14,7 +14,7 @@ function getById($id)
 function getAllUser()
 {
 	$con = dbConnection();
-	$sql = "select * from users";
+	$sql = "select * from user";
 	$result = mysqli_query($con, $sql);
 	$users = [];
 	while ($row = mysqli_fetch_assoc($result)) {
@@ -26,7 +26,7 @@ function getAllUser()
 function validate($user)
 {
 	$con = dbConnection();
-	$sql = "select * from users where username='{$user['username']}' and password='{$user['password']}'";
+	$sql = "select * from user where name='{$user['username']}' and password='{$user['password']}'";
 
 	$result = mysqli_query($con, $sql);
 	$row = mysqli_fetch_assoc($result);
@@ -41,7 +41,7 @@ function validate($user)
 function create($user)
 {
 	$con = dbConnection();
-	$sql = "insert into user values('', '{$user['name']}', '{$user['password']}', '{$user['email']}', 'user')";
+	$sql = "insert into user values('', '{$user['name']}', '{$user['email']}', '{$user['password']}')";
 
 	if (mysqli_query($con, $sql)) {
 		return true;
@@ -53,7 +53,7 @@ function create($user)
 function update($user)
 {
 	$con = dbConnection();
-	$sql = "update users set username='{$user['username']}', password='{$user['password']}', email='{$user['email']}' where id={$user['id']}";
+	$sql = "update user set name='{$user['username']}', email='{$user['email']}', password='{$user['password']}' where id={$user['id']}";
 
 	if (mysqli_query($con, $sql)) {
 		return true;
@@ -65,7 +65,7 @@ function update($user)
 function delete($user)
 {
 	$con = dbConnection();
-	$sql = "delete from users where id={$user['id']}";
+	$sql = "delete from user where id={$user['id']}";
 
 	if (mysqli_query($con, $sql)) {
 		return true;

@@ -1,36 +1,10 @@
-<?php
-	
-	if(isset($_GET['error'])){
-
-		if($_GET['error'] == 'null'){
-			echo "username/password can't left empty...";
-		}
-
-		if($_GET['error'] == 'invalid'){
-			echo "invalid username/password";
-		}
-
-		if($_GET['error'] == 'invalid_request'){
-			echo "invalid request...please login first..";
-		}
-	}
-
-	if(isset($_GET['msg'])){
-		if($_GET['msg'] == 'success'){
-			echo "Registration done! now you can sign in...";
-		}
-	}
-
-
-
-?>
-
-
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Login page</title>
 </head>
+
 <body>
 
 	<h1>Login page</h1>
@@ -41,11 +15,11 @@
 			<table>
 				<tr>
 					<td>username</td>
-					<td><input type="text" name="username"></td>
+					<td><input id="name" type="text" name="username"></td>
 				</tr>
 				<tr>
 					<td>Password</td>
-					<td><input type="password" name="password"></td>
+					<td><input id="password" type="password" name="password"></td>
 				</tr>
 				<tr>
 					<td></td>
@@ -54,5 +28,9 @@
 			</table>
 		</fieldset>
 	</form>
+	<script type="text/javascript">
+
+	</script>
 </body>
+
 </html>

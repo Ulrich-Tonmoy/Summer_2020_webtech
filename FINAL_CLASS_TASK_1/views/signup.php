@@ -6,21 +6,21 @@
 </head>
 
 <body>
-	<form action="../php/signupController.php" method="post">
+	<form action="../php/signupController.php" method="POST">
 		<fieldset>
 			<legend>SignUp</legend>
 			<table>
 				<tr>
 					<td>username</td>
-					<td><input type="text" name="name"></td>
+					<td><input id="name" type="text" name="name"></td>
 				</tr>
 				<tr>
 					<td>Password</td>
-					<td><input type="password" name="password"></td>
+					<td><input id="password" type="password" name="password"></td>
 				</tr>
 				<tr>
 					<td>Email</td>
-					<td><input type="email" name="email"></td>
+					<td><input id="email" type="email" name="email"></td>
 				</tr>
 				<tr>
 					<td></td>
@@ -42,16 +42,15 @@
 			var email = document.getElementById('email').value;
 			var xhttp = new XMLHttpRequest();
 
-			xhttp.open('POST', 'abc.php', true);
+			xhttp.open('POST', '../php/signupController.php', true);
 			xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-			xhttp.send('username=' + name + 'email' + email + 'password=' + password);
+			xhttp.send("name=" + name + "&email=" + email + "&password=" + password);
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
-					document.getElementById('suc').innerHTML = "Successful";
+					document.getElementById('suc').innerHTML = "Successfully Registered!";
 
 				}
 			}
-
 			document.getElementsByTagName('a')[0].style.display = "inline";
 		}
 	</script>
