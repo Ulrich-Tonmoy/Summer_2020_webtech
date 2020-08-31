@@ -1,46 +1,31 @@
 <?php
-require_once('../php/sessionController.php');
-require_once('../service/userService.php');
-?>
 
-<!DOCTYPE html>
-<html>
+$con = mysqli_connect('localhost', 'root', '', 'webtech');
+$sql = "select * from user";
 
-<head>
-	<title>user List</title>
-</head>
+$result = mysqli_query($con, $sql);
 
-<body>
+$data = "<table border=1>
+				<tr>
+					<td>ID</td>
+					<td>Name</td>
+					<td>Email</td>
+					<td>Password</td>
+					<td>Action</td>
+				</tr>";
 
-	<h1>User List page</h1>
+while ($row = mysqli_fetch_assoc($result)) {
+	$data .= "<tr>
+					<td>{$row['id']}</td>
+					<td>{$row['name']}</td>
+					<td>{$row['email']}</td>
+					<td>{$row['password']}</td>
+					<td>
+						<a href=> Edit</a> |
+						<a href=> Delete</a>
+					</td>
+				</tr>";
+}
+$data .= "</table>";
 
-	<?php
-	$users = getAllUser();
-	?>
-
-	<table border=1>
-		<tr>
-			<td>ID</td>
-			<td>NAME</td>
-			<td>password</td>
-			<td>Email</td>
-			<td>Action</td>
-		</tr>
-		<?php for ($i = 0; $i != count($users); $i++) { ?>
-			<tr>
-				<td><?= $users[$i]['id'] ?></td>
-				<td><?= $users[$i]['name'] ?></td>
-				<td><?= $users[$i]['password'] ?></td>
-				<td><?= $users[$i]['email'] ?> </td>
-				<td>
-					<a href="edit.php?id=<?= $users[$i]['id'] ?>"> Edit</a> |
-					<a href="delete.php?id=<?= $users[$i]['id'] ?>"> Delete</a>
-
-				</td>
-			</tr>
-		<?php } ?>
-	</table>
-
-</body>
-
-</html>
+echo $data;
