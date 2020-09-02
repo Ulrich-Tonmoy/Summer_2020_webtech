@@ -1,8 +1,12 @@
 <?php
 require_once('db.php');
+session_start();
 
 $id           = $_POST['id'];
 $password     = $_POST['password'];
+
+$_SESSION['id'] = $id;
+$_SESSION['password'] = $password;
 
 if (empty($id) || empty($password)) {
     echo "null submission found!";
@@ -15,6 +19,6 @@ if (empty($id) || empty($password)) {
     if (count($row) > 0) {
         echo "login Successful!";
     } else {
-        echo "login failed!";;
+        echo "login failed!";
     }
 }
