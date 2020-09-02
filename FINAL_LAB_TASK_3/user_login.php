@@ -1,12 +1,16 @@
 <?php
+require_once('db.php');
 session_start();
-$file  = fopen('data.txt', 'r');
-$data  = fread($file, filesize('data.txt'));
-fclose($data);
 
-$user = explode('|', $data);
+$id           = $_SESSION['id'];
+$password     = $_SESSION['password'];
 
-$name       = trim($user[1]);
+$con = dbConnection();
+$sql = "select * from users where id='{$id}' and password='{$password}'";
+$result = mysqli_query($con, $sql);
+$row = mysqli_fetch_assoc($result);
+
+$name       = $row['name'];
 
 ?>
 
