@@ -1,0 +1,97 @@
+<html>
+  <form action="regi.php" method="POST">
+    <fieldset >
+      <legend ><b></b>REGISTRATION</b></legend>
+      <form>
+        <br />
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td>Id</td>
+            <td>:</td>
+            <td><input id="id" name="id" type="text" /></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="4"><hr /></td>
+          </tr>
+          <tr>
+            <td>Password</td>
+            <td>:</td>
+            <td><input id="password" name="password" type="password" /></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="4"><hr /></td>
+          </tr>
+          <tr>
+            <td>Confirm Password</td>
+            <td>:</td>
+            <td><input id="confirmPassword" name="confirmPassword" type="password" /></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="4"><hr /></td>
+          </tr>  
+          <tr>
+            <td>Name</td>
+            <td>:</td>
+            <td><input id="name" name="name" type="text" /></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="4"><hr /></td>
+          </tr>        
+          <tr>
+            <td>Email</td>
+            <td>:</td>
+            <td>
+              <input id="email" name="email" type="text" />
+              <abbr title="hint: sample@example.com"><b>i</b></abbr>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="4"><hr /></td>
+          </tr>
+          <tr>
+            <td>User Type [User / Admin]</td>
+            <td>:</td>
+            <td>
+              <select name="userType" id="userType">
+                <option value="User">User</option>
+                <option value="Admin">Admin</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+        <hr />
+        <input name="submit" type="button" value="Submit" onclick="f1()"/>
+        <a href="login.html" style="display: none">Login</a>
+        <div id="suc"></div>
+      </form>
+    </fieldset>
+  </form>
+
+  <script type="text/javascript">
+		function f1() {
+      var id = document.getElementById('id').value;
+			var password = document.getElementById('password').value;
+			var confirmPassword = document.getElementById('confirmPassword').value;
+      var name = document.getElementById('name').value;
+			var email = document.getElementById('email').value;
+      var userType = document.getElementById('userType').value;
+
+			var xhttp = new XMLHttpRequest();
+			xhttp.open('POST', 'regi.php', true);
+			xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			xhttp.send("id=" + id + "&name=" + name + "&email=" + email + "&password=" + password +"&confirmPassword=" + confirmPassword + "&confimrPassword=" + confirmPassword + "&userType=" + userType);
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById('suc').innerHTML = this.responseText;
+
+				}
+			}
+			document.getElementsByTagName('a')[0].style.display = "inline";
+		}
+	</script>
+</html>
