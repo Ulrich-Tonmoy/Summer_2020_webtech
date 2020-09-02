@@ -27,7 +27,6 @@
 					<td>
 						<input type="button" name="create" value="Create" onclick="f1()">
 						<a href="home.php">Back</a>
-						<a href="login.php" style="display: none">login</a>
 					</td>
 				</tr>
 				<tr>
@@ -52,7 +51,6 @@
 
 				}
 			}
-			document.getElementsByTagName('a')[0].style.display = "inline";
 		}
 	</script>
 </body>
